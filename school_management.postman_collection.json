@@ -1,0 +1,591 @@
+{
+	"info": {
+		"_postman_id": "e7c73711-f3b7-4a28-a6e0-fdac49376b62",
+		"name": "school_management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add-school",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "SPVM",
+							"type": "default"
+						},
+						{
+							"key": "address",
+							"value": "madurai",
+							"type": "default"
+						},
+						{
+							"key": "mail",
+							"value": "jeevanom@gmail.com",
+							"type": "default"
+						},
+						{
+							"key": "phone_number",
+							"value": "9887544989",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/schools/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"schools",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-school-data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/schools/?mail=jeevanom@gmail.com",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"schools",
+						""
+					],
+					"query": [
+						{
+							"key": "mail",
+							"value": "jeevanom@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-classes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "12",
+							"type": "default"
+						},
+						{
+							"key": "school",
+							"value": "SPVM",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/classes/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"classes",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-class-data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/classes/?name=10&school=SPVM",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"classes",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "10"
+						},
+						{
+							"key": "school",
+							"value": "SPVM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-section",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "school",
+							"value": "SPVM",
+							"type": "default"
+						},
+						{
+							"key": "name",
+							"value": "D",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/section/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"section",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-sections",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/section/?name=B&school=SPVM",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"section",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "B"
+						},
+						{
+							"key": "school",
+							"value": "SPVM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-subjects",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "school",
+							"value": "SPVM",
+							"type": "default"
+						},
+						{
+							"key": "name",
+							"value": "Social",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/subjects/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"subjects",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-subjects",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/subjects/?subject_id=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"subjects",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "English",
+							"disabled": true
+						},
+						{
+							"key": "school",
+							"value": "SPVM",
+							"disabled": true
+						},
+						{
+							"key": "subject_id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-students and login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "school",
+							"value": "SPVM",
+							"type": "default"
+						},
+						{
+							"key": "section",
+							"value": "A",
+							"type": "default"
+						},
+						{
+							"key": "classes",
+							"value": "10",
+							"type": "default"
+						},
+						{
+							"key": "name",
+							"value": "Jeevan",
+							"type": "default"
+						},
+						{
+							"key": "age",
+							"value": "16",
+							"type": "default"
+						},
+						{
+							"key": "address",
+							"value": "madurai",
+							"type": "default"
+						},
+						{
+							"key": "phone_number",
+							"value": "1234567890",
+							"type": "default"
+						},
+						{
+							"key": "email",
+							"value": "jee@gmail.com",
+							"type": "default"
+						},
+						{
+							"key": "dob",
+							"value": "1999-06-12",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/students/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"students",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_std",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/creating_student_id/SPVM",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"creating_student_id",
+						"SPVM"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-students",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/students/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"students",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-staffs",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "school",
+							"value": "SPVM",
+							"type": "default"
+						},
+						{
+							"key": "classes",
+							"value": "7,8,9",
+							"type": "default"
+						},
+						{
+							"key": "section",
+							"value": "A,B,D",
+							"type": "default"
+						},
+						{
+							"key": "name",
+							"value": "Balaji",
+							"type": "default"
+						},
+						{
+							"key": "role",
+							"value": "Teacher",
+							"type": "default"
+						},
+						{
+							"key": "age",
+							"value": "27",
+							"type": "default"
+						},
+						{
+							"key": "email",
+							"value": "balaji@gmail.com",
+							"type": "default"
+						},
+						{
+							"key": "phone_number",
+							"value": "9876543212",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/staffs/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"staffs",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-staffs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/staffs/?staff_id=SPVM7288",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"staffs",
+						""
+					],
+					"query": [
+						{
+							"key": "staff_id",
+							"value": "SPVM7288"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "login_condition",
+							"value": "staff",
+							"type": "default"
+						},
+						{
+							"key": "user_name",
+							"value": "SPVM_Jeevan",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "spvm_Jeevan_BkP8",
+							"disabled": true
+						},
+						{
+							"key": "user_name",
+							"value": "SPVM_Balaji",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "spvmbalaji_t1C9",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/login_check/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"login_check",
+						""
+					],
+					"query": [
+						{
+							"key": "login_condition",
+							"value": "student",
+							"disabled": true
+						},
+						{
+							"key": "user_name",
+							"value": "SPVM_Jeevan",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "spvm_Jeevan_BkP8",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add_ranks",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "school",
+							"value": "SPVM",
+							"type": "default"
+						},
+						{
+							"key": "student",
+							"value": "SPVM3648",
+							"type": "default"
+						},
+						{
+							"key": "mark",
+							"value": "900",
+							"type": "default"
+						},
+						{
+							"key": "total_mark",
+							"value": "1200",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/Rank_system/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"Rank_system",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-ranksystem",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

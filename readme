@@ -1,0 +1,12 @@
+# open the cmd
+## management_env/Scripts/activate
+
+# cd management_proj
+
+## pip install -r requirements.txt
+
+## python manage.py makemigrations
+
+## python manage.py migrate
+
+## python manage.py runserver
