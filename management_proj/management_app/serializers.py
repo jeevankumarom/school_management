@@ -45,29 +45,6 @@ class rank_serializers(serializers.ModelSerializer):
         fields='__all__'
 
 
-
-
-# class StudentSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Student
-#         fields = ['id', 'email', 'first_name', 'last_name', 'roll_number']
-
-# class StaffSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Staff_register_login
-#         fields = ['id', 'email', 'first_name', 'last_name','sec','cls','school','password']    
-    
-# class RegisterSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = User
-#         fields = ('id', 'username', 'email', 'password')
-#         extra_kwargs = {'password': {'write_only': True}}
-
-#     def create(self, validated_data):
-        
-#         user = User.objects.create_user(validated_data['username'], validated_data['email'], validated_data['password'])
-
-#         return user
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser

@@ -145,31 +145,4 @@ class CustomUser(AbstractBaseUser):
         """Return the email address"""
         return self.email
     
-from django.contrib.auth.models import AbstractUser
 
-# class Student_register_login(AbstractUser):
-#     student_id=models.CharField(max_length=10,primary_key=True,unique=True)
-#     first_name = models.CharField(max_length=30)
-#     last_name = models.CharField(max_length=30)
-    # cls=models.ForeignKey(classes,on_delete=models.CASCADE,related_name='students')
-    # sec=models.ForeignKey(section,on_delete=models.CASCADE,related_name='students')
-
-    # def get_full_name(self):
-    #     return self.first_name + " " + self.last_name
-
-# class Staff_register_login(AbstractUser):
-#     staff_id=models.AutoField(primary_key=True,unique=True)
-#     first_name = models.CharField(max_length=30)
-#     last_name = models.CharField(max_length=30)
-    # cls=models.ForeignKey(classes,on_delete=models.CASCADE,related_name='students')
-    # sec=models.ForeignKey(section,on_delete=models.CASCADE, related_name='students')
-    # school=models.ForeignKey(school,on_delete=models.CASCADE,related_name="students")
-    # def get_full_name(self):
-    #     return self.first_name + " " + self.last_name
-
-
-# class Student1(AbstractUser):
-#     phone_number = models.CharField(max_length=20)
-
-# class Teacher1(AbstractUser):
-#     phone_number = models.CharField(max_length=20)
