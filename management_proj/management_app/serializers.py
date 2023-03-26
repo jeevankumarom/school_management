@@ -43,3 +43,16 @@ class rank_serializers(serializers.ModelSerializer):
     class Meta:
         model=marks
         fields='__all__'
+
+
+
+
+class StudentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Student
+        fields = ['id', 'email', 'first_name', 'last_name', 'roll_number']
+
+class StaffSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Staff_register_login
+        fields = ['id', 'email', 'first_name', 'last_name','sec','cls','school']

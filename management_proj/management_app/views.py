@@ -466,3 +466,53 @@ class Rank_system(APIView):
             student["Rank"] = rank
             ranked_marks.append(student)
         return Response(ranked_marks)
+    
+
+
+"""
+create Students and Staff login from in-built model
+ 
+"""
+from django.contrib.auth import authenticate,login
+
+
+class staffRegisterview(APIView):
+    def post(self,request):
+        tempdict=self.request.data.copy()
+
+        sec=get_sction_id(tempdict['sec'])
+
+        clas=get_classes_id(tempdict['cls'])
+        
+        school_id=get_school_id(tempdict['school'])
+
+        staff_id=creating_student_and_staff_id(tempdict['school'],'staff')
+
+        tempdict['cls']=clas
+        tempdict['sec']=sec
+        # tempdict['staff_id']=staff_id
+        tempdict['is_staff']=True
+        tempdict['school']=school_id
+        print(tempdict)
+        serializer = StaffSerializer(data=tempdict)
+        if serializer.is_valid():
+            user = serializer.save()
+            login(request, user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class StaffLoginView(APIView):
+    def get(self, request):
+        print("CALLED")
+        email = request.GET['email']
+        password = request.GET['password']
+        print(email,password)
+        user = authenticate(email=email, password=password)
+        print(user)
+        # if user and user.is_staff:
+        login(request, user)
+        serializer = StaffSerializer(user,many=True)
+        return Response(serializer.data)
+        # else:
+        #     return Response({'error': 'Invalid email or password'}, status=status.HTTP_401_UNAUTHORIZED)
