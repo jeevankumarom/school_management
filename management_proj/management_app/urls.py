@@ -12,8 +12,8 @@ urlpatterns=[
     path('staffs/',register_staff.as_view()),
     path('login_check/',login_check.as_view()),
     path('Rank_system/',Rank_system.as_view()),
-    path('StaffLoginView/',StaffLoginView.as_view()),
-    path('staffRegisterview/',staffRegisterview.as_view())
+    path('StaffLoginView/',LoginView.as_view()),
+    path('staff_student_Registerview/',staff_student_Registerview.as_view())
     # path('creating_student_id/<str:school>',creating_student_id)
 
 ]

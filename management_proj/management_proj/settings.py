@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'management_app',
-    'rest_framework'
+    'rest_framework',
+    'knox'
 ]
 
 MIDDLEWARE = [
@@ -100,8 +101,17 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+AUTH_USER_MODEL = 'management_app.CustomUser'
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # 'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+        'knox.auth.TokenAuthentication',
+    ]
+}
 
-
+# AUTH_USER_MODEL = 'management_app.CustomUser'
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend']
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -115,7 +125,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+# AUTH_USER_MODEL='management_app.User'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 

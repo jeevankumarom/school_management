@@ -476,7 +476,7 @@ create Students and Staff login from in-built model
 from django.contrib.auth import authenticate,login
 
 
-class staffRegisterview(APIView):
+class staff_student_Registerview(APIView):
     def post(self,request):
         tempdict=self.request.data.copy()
 
@@ -490,29 +490,39 @@ class staffRegisterview(APIView):
 
         tempdict['cls']=clas
         tempdict['sec']=sec
-        # tempdict['staff_id']=staff_id
+        tempdict["is_active"]=True
         tempdict['is_staff']=True
         tempdict['school']=school_id
-        print(tempdict)
-        serializer = StaffSerializer(data=tempdict)
+
+
+        serializer = UserSerializer(data=tempdict)
         if serializer.is_valid():
-            user = serializer.save()
+            password = serializer.validated_data.get('password')
+            hashed_password = make_password(password)
+
+            
+            user = serializer.save(password=hashed_password)
+            
             login(request, user)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            if serializer.data['staff_login'] == False:
+                return Response("Student registred successfully", status=status.HTTP_201_CREATED)
+            elif serializer.data['student_login'] == False:
+                return Response("Staff registred successfully", status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
 
-
-class StaffLoginView(APIView):
+    
+class LoginView(APIView):
     def get(self, request):
-        print("CALLED")
         email = request.GET['email']
         password = request.GET['password']
-        print(email,password)
         user = authenticate(email=email, password=password)
-        print(user)
-        # if user and user.is_staff:
-        login(request, user)
-        serializer = StaffSerializer(user,many=True)
-        return Response(serializer.data)
-        # else:
-        #     return Response({'error': 'Invalid email or password'}, status=status.HTTP_401_UNAUTHORIZED)
+        if user and user.is_staff:
+            res=login(request, user)
+            serializer = UserSerializer(user)
+            if serializer.data['staff_login'] == False:
+                return Response("Student login successfully", status=status.HTTP_201_CREATED)
+            elif serializer.data['student_login'] == False:
+                return Response("Staff login successfully", status=status.HTTP_201_CREATED)
+        else:
+            return Response({'error': 'Invalid email or password'}, status=status.HTTP_401_UNAUTHORIZED)
