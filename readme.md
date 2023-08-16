@@ -12,17 +12,17 @@
 # python manage.py runserver
 
 ### Initial
- $ go mod init
+   $ go mod init
 
 ### start the process
    $ go run .
 
---open postman setup POST method paste below url - $ http://localhost:8080/post_json
---Click on the "Body" section.
---Choose the "Raw" format option.
---Change the "Type" to JSON and paste given input JSON like below.
+- open postman setup POST method paste below url - $ http://localhost:8080/post_json
+- Click on the "Body" section.
+- Choose the "Raw" format option.
+- Change the "Type" to JSON and paste given input JSON like below.
 
-{
+> {
 "ev": "top_cta_clicked",
 "et": "clicked",
 "id": "cl_app_id_001",
@@ -63,6 +63,8 @@
 "uatrv6": "false",
 "uatrt6": "boolean"
 }
+
+
 
 
 
